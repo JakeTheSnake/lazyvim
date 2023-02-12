@@ -5,7 +5,8 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
+vim.g.ale_disable_lsp = 1
+vim.g.ale_display_lsp = 0
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
