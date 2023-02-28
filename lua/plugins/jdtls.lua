@@ -106,6 +106,14 @@ return {
                 settings = {
                   java = {},
                 },
+                handlers = {
+                  ["language/status"] = function(_, result)
+                    -- print(result)
+                  end,
+                  ["$/progress"] = function(_, result, ctx)
+                    -- disable progress updates.
+                  end,
+                },
               }
               require("jdtls").start_or_attach(config)
             end,
