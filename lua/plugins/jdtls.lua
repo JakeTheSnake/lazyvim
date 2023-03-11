@@ -104,7 +104,46 @@ return {
                 -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
                 -- for a list of options
                 settings = {
-                  java = {},
+                  java = {
+                    completion = {
+                      favoriteStaticMembers = {
+                        "org.hamcrest.MatcherAssert.assertThat",
+                        "org.hamcrest.Matchers.*",
+                        "org.hamcrest.CoreMatchers.*",
+                        "org.junit.jupiter.api.Assertions.*",
+                        "java.util.Objects.requireNonNull",
+                        "java.util.Objects.requireNonNullElse",
+                        "org.mockito.Mockito.*",
+                      },
+                    },
+                    contentProvider = { preferred = "fernflower" },
+                    eclipse = {
+                      downloadSources = true,
+                    },
+                    flags = {
+                      allow_incremental_sync = true,
+                      server_side_fuzzy_completion = true,
+                    },
+                    implementationsCodeLens = {
+                      enabled = false, --Don"t automatically show implementations
+                    },
+                    format = false,
+                    inlayHints = {
+                      parameterNames = { enabled = "literals" },
+                    },
+                    maven = {
+                      downloadSources = true,
+                    },
+                    referencesCodeLens = {
+                      enabled = false, --Don"t automatically show references
+                    },
+                    references = {
+                      includeDecompiledSources = true,
+                    },
+                    saveActions = {
+                      organizeImports = true,
+                    },
+                  },
                 },
                 handlers = {
                   ["language/status"] = function(_, result)
