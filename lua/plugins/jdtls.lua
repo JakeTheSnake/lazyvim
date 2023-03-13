@@ -127,7 +127,9 @@ return {
                     implementationsCodeLens = {
                       enabled = false, --Don"t automatically show implementations
                     },
-                    format = false,
+                    format = {
+                      enabled = false
+                    },
                     inlayHints = {
                       parameterNames = { enabled = "literals" },
                     },
@@ -141,7 +143,7 @@ return {
                       includeDecompiledSources = true,
                     },
                     saveActions = {
-                      organizeImports = true,
+                      organizeImports = false,
                     },
                   },
                 },
