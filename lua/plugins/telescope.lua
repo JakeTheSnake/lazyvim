@@ -1,12 +1,35 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
+    },
     opts = {
       defaults = {
         prompt_prefix = " ",
         selection_caret = " ",
+        layout_strategy = "vertical",
+        path_display = {
+          -- shorten = {
+          --   len = 4,
+          --   exclude = { 2, -1 },
+          -- },
+          truncate = true,
+        },
+        dynamic_preview_title = true,
+        layout_config = {
+          vertical = { width = 0.8 },
+        },
         mappings = {
           i = {
+            ["<esc>"] = function(...)
+              return require("telescope.actions").close(...)
+            end,
+            ["<C-u>"] = false,
             ["<C-j>"] = function(...)
               return require("telescope.actions").move_selection_next(...)
             end,
