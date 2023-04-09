@@ -115,6 +115,13 @@ return {
                         "java.util.Objects.requireNonNullElse",
                         "org.mockito.Mockito.*",
                       },
+                      filteredTypes = {
+                        "com.sun.*",
+                        "io.micrometer.shaded.*",
+                        "java.awt.*",
+                        "jdk.*",
+                        "sun.*",
+                      },
                     },
                     contentProvider = { preferred = "fernflower" },
                     eclipse = {
@@ -128,7 +135,7 @@ return {
                       enabled = false, --Don"t automatically show implementations
                     },
                     format = {
-                      enabled = false
+                      enabled = false,
                     },
                     inlayHints = {
                       parameterNames = { enabled = "literals" },
