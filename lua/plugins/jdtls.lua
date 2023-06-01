@@ -52,6 +52,9 @@ return {
                   "<cmd>lua vim.lsp.buf.formatting()<CR>",
                   { buffer = buffer, desc = "Format" }
                 )
+                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = buffer, desc = "Code Actions" })
+                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = buffer, desc = "Rename" })
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buffer, desc = "Hover" })
               end)
 
               local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
