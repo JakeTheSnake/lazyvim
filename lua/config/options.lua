@@ -4,6 +4,7 @@
 
 -- disable auto comment when insert new line after comment
 local opt = vim.opt
+vim.g.autoformat = true
 
 vim.api.nvim_create_autocmd("bufEnter", {
   group = vim.api.nvim_create_augroup("FormatOptions", {}),
