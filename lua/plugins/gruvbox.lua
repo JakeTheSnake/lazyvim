@@ -1,5 +1,5 @@
 return {
-  { "gruvbox-community/gruvbox" },
+  { "ellisonleao/gruvbox.nvim" },
 
   -- Configure LazyVim to load gruvbox
   {
