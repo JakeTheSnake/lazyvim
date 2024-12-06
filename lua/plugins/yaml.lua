@@ -59,6 +59,7 @@ return {
               },
               schemas = {
                 ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                ["https://json.schemastore.org/cert-manager"] = "*.cert.yaml",
                 ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
                 ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
                 ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
