@@ -117,6 +117,7 @@ return {
                         "java.util.Objects.requireNonNull",
                         "java.util.Objects.requireNonNullElse",
                         "org.mockito.Mockito.*",
+                        "com.mongodb.client.model.Filters.*",
                       },
                       filteredTypes = {
                         "com.sun.*",
