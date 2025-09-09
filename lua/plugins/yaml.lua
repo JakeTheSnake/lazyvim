@@ -110,8 +110,8 @@ return {
         -- Additional schemas available in Telescope picker
         schemas = {
           {
-            name = "Kubernetes 1.25.9",
-            uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.25.9-standalone-strict/all.json",
+            name = "Kubernetes 1.33.4",
+            uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.4-standalone-strict/all.json",
           },
         },
       })
