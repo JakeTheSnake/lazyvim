@@ -5,3 +5,12 @@
 
 vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("n", "<leader>fs", ":Telescope lsp_document_symbols <CR>")
+vim.api.nvim_create_user_command("Rancher", function()
+  vim.cmd.normal({ args = { "G" }, bang = true })
+  vim.cmd.normal({ args = { "p" }, bang = true })
+  vim.cmd.normal({ args = { "d76j" }, bang = true })
+  vim.cmd.normal({ args = { "k" }, bang = true })
+  vim.cmd.normal({ args = { "dd" }, bang = true })
+  vim.cmd.normal({ args = { "j" }, bang = true })
+  vim.cmd.normal({ args = { "dG" }, bang = true })
+end, {})
