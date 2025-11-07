@@ -77,6 +77,10 @@ local config = {
   cmd = cmd,
   root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
   on_attach = on_attach,
+  init_options = {
+    -- This is the important part
+    vmArgs = "--enable-preview",
+  },
   settings = {
     java = {
       completion = {
@@ -98,6 +102,15 @@ local config = {
           "sun.*",
         },
       },
+      project = {
+        sourcePaths = {
+          "target/generated-sources/wsimport",
+          "target/generated-sources/annotations",
+        },
+      },
+      configuration = {
+        updateBuildConfiguration = "automatic",
+      },
       contentProvider = { preferred = "fernflower" },
       eclipse = { downloadSources = true },
       flags = {
@@ -107,14 +120,14 @@ local config = {
       implementationsCodeLens = { enabled = false },
       format = { enabled = false },
       inlayHints = { parameterNames = { enabled = "literals" } },
-      maven = { downloadSources = true },
+      maven = { downloadSources = true, updateSnapshots = true },
       referencesCodeLens = { enabled = false },
       references = { includeDecompiledSources = true },
       saveActions = { organizeImports = false },
     },
   },
   handlers = {
-    ["language/status"] = function(_, _) end,
+    -- ["language/status"] = function(_, _) end,
     ["$/progress"] = function(_, _, _) end,
   },
 }
