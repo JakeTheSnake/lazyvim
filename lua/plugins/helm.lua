@@ -44,7 +44,7 @@ return {
 
       setup = {
         yamlls = function()
-          require("snacks.util.lsp").on({ name = "yamlls" }, function(client, buffer)
+          require("snacks.util.lsp").on({ name = "yamlls" }, function(_, buffer)
             if vim.bo[buffer].filetype == "helm" then
               vim.schedule(function()
                 vim.cmd("LspStop ++force yamlls")
