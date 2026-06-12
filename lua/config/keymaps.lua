@@ -17,3 +17,24 @@ end, {})
 vim.api.nvim_create_user_command("FormatXML", function()
   vim.cmd([[%!xmllint --format - 2>/dev/null | sed -E 's/^([ ]+)/\1\1/']])
 end, { desc = "Format XML with xmllint and re-indent to 4 spaces" })
+
+vim.keymap.set("v", "<leader>jwt", function()
+  vim.cmd([[
+    '<,'>!python3 -c "
+import sys, base64, json
+
+def decode_part(p):
+    p = p.strip()
+    p += '=' * (-len(p) % 4)
+    p = p.replace('-', '+').replace('_', '/')
+    return json.loads(base64.b64decode(p))
+
+parts = sys.stdin.read().strip().split('.')
+header  = decode_part(parts[0])
+payload = decode_part(parts[1])
+
+print(json.dumps(header, indent=2))
+print(json.dumps(payload, indent=2))
+"
+  ]])
+end, { desc = "Decode JWT" })

@@ -51,6 +51,7 @@ local cmd = {
   "-Dlog.level=ALL",
   -- '-noverify',
   "-Xms1g",
+  "-Xmx4g",
   "--add-modules=ALL-SYSTEM",
   "--add-opens",
   "java.base/java.util=ALL-UNNAMED",
@@ -77,10 +78,10 @@ local config = {
   cmd = cmd,
   root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
   on_attach = on_attach,
-  init_options = {
-    -- This is the important part
-    vmArgs = "--enable-preview",
-  },
+  -- init_options = {
+  --   -- This is the important part
+  --   vmArgs = "--enable-preview",
+  -- },
   settings = {
     java = {
       completion = {
@@ -102,12 +103,12 @@ local config = {
           "sun.*",
         },
       },
-      project = {
-        sourcePaths = {
-          "target/generated-sources/wsimport",
-          "target/generated-sources/annotations",
-        },
-      },
+      -- project = {
+      --   sourcePaths = {
+      --     "target/generated-sources/wsimport",
+      --     "target/generated-sources/annotations",
+      --   },
+      -- },
       configuration = {
         updateBuildConfiguration = "automatic",
       },
