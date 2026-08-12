@@ -18,8 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.minianimate_disable = true
   end,
 })
+-- LazyVim's "wrap_spell" autocmd enables spell for these filetypes; turn it back off
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "text" },
+  pattern = { "text", "markdown" },
   callback = function()
     vim.opt_local.spell = false
   end,
